@@ -1,11 +1,20 @@
 package com.petCare.Atividade4.entity;
 
+import jakarta.persistence.*;
+
+@MappedSuperclass
 public abstract class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private String email;
     private String telefone;
     private String CPF;
+
+    @OneToOne
+    @JoinColumn(referencedColumnName = "idEndereco")
     private Endereco endereco;
 
     public Usuario() {}

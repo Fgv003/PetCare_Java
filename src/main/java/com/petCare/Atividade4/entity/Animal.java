@@ -1,17 +1,24 @@
 package com.petCare.Atividade4.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Animal {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long idTutor;
+    @OneToOne(mappedBy = "id")
+    private Tutor idTutor;
     private String nome;
     private Especie especie;
+    @OneToOne
     private Raca raca;
     private LocalDateTime dataNascimento;
 
-    public Animal(LocalDateTime dataNascimento, Especie especie, Long id, Long
+    public Animal(LocalDateTime dataNascimento, Especie especie, Long id, Tutor
             idTutor, String nome, Raca raca) {
         this.dataNascimento = dataNascimento;
         this.especie= especie;
@@ -21,6 +28,8 @@ public class Animal {
         this.raca = raca;
     }
 
+    public Animal() {}
+
     public LocalDateTime getDataNascimento() {
         return dataNascimento;
     }
@@ -29,7 +38,7 @@ public class Animal {
         return id;
     }
 
-    public Long getIdTutor() {
+    public Tutor getIdTutor() {
         return idTutor;
     }
 

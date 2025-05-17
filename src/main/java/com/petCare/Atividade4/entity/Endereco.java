@@ -1,9 +1,13 @@
 package com.petCare.Atividade4.entity;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Endereco {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEndereco;
-    private Long idUsuario;
     private String rua;
     private String numero;
     private String bairro;
@@ -12,13 +16,12 @@ public class Endereco {
     private String cep;
 
     public Endereco(String bairro, String cep, String cidade, String estado, Long idEndereco,
-                    Long idUsuario, String numero, String rua) {
+                    String numero, String rua) {
         this.bairro = bairro;
         this.cep = cep;
         this.cidade = cidade;
         this.estado = estado;
         this.idEndereco = idEndereco;
-        this.idUsuario = idUsuario;
         this.numero = numero;
         this.rua = rua;
     }
@@ -59,10 +62,6 @@ public class Endereco {
 
     public Long getIdEndereco() {
         return idEndereco;
-    }
-
-    public Long getIdUsuario() {
-        return idUsuario;
     }
 
     public String getNumero() {

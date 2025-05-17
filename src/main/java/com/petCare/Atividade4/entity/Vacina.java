@@ -1,9 +1,17 @@
 package com.petCare.Atividade4.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDateTime;
 
+@Entity
 public class Vacina {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idVacina;
     private String nomeVacina;
     private LocalDateTime dataAplicacao;
@@ -18,6 +26,8 @@ public class Vacina {
         this.idVacina = idVacina;
         this.nomeVacina = nomeVacina;
     }
+
+    public Vacina() {}
 
 
     public LocalDateTime getDataAplicacao() {

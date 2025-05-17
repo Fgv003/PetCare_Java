@@ -1,7 +1,10 @@
 package com.petCare.Atividade4.entity;
 
+import jakarta.persistence.Entity;
+
 import java.util.List;
 
+@Entity
 public class Medico extends Usuario{
 
     private String especialidade;
