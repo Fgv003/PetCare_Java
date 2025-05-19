@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@PrimaryKeyJoinColumn(name = "usuario_id")
 public class Tutor extends Usuario {
 
     @OneToMany(mappedBy = "idTutor")
