@@ -44,6 +44,10 @@ public class Animal {
 
     public Animal() {}
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public LocalDateTime getDataNascimento() {
         return dataNascimento;
     }

@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VacinaRepository extends JpaRepository<Vacina, Long> {
     List<Vacina> findByProntuario_AnimalIn(List<Animal> animais);
+    List<Vacina> findByProntuarioId(Long prontuarioId);
 }

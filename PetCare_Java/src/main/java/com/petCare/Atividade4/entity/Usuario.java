@@ -19,6 +19,10 @@ public abstract class Usuario {
 
     public Usuario() {}
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Usuario(Long id, String nome, String email, String telefone, String CPF, Endereco endereco) {
         this.id = id;
         this.nome = nome;
