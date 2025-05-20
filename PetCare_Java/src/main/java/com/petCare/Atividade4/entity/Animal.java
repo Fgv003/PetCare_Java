@@ -1,5 +1,7 @@
 package com.petCare.Atividade4.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -11,12 +13,15 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @ManyToOne
     @JoinColumn(name = "tutor_id")
+    @JsonBackReference
     private Tutor idTutor;
+
     public Tutor getIdTutor() {
-    return idTutor;
-}
+        return idTutor;
+    }
     private String nome;
     private Especie especie;
     @ManyToOne
@@ -24,7 +29,9 @@ public class Animal {
     private Raca raca;
     private LocalDateTime dataNascimento;
 
-    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
+    @OneToMany()
+    @JoinColumn(name = "animal")
+    @JsonManagedReference
     private List<Prontuario> prontuarios;
 
     public List<Prontuario> getProntuarios() {

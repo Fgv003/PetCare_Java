@@ -1,8 +1,12 @@
 package com.petCare.Atividade4.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Entity
+@Data
+@AllArgsConstructor
 public class Endereco {
 
     @Id

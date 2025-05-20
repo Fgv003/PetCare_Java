@@ -1,5 +1,6 @@
 package com.petCare.Atividade4.controllers;
 
+import com.petCare.Atividade4.dtos.MedicoDTO;
 import com.petCare.Atividade4.entity.Medico;
 import com.petCare.Atividade4.services.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class MedicoController {
     private MedicoService medicoService;
 
     @PostMapping
-    public ResponseEntity<Medico> cadastrar(@RequestBody Medico medico) {
-        Medico salvo = medicoService.save(medico);
-        return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
+    public ResponseEntity<Medico> cadastrar(@RequestBody MedicoDTO medicoDTO) {
+        Medico medicoSalvo = medicoService.save(medicoDTO);
+        return new ResponseEntity<>(medicoSalvo, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")

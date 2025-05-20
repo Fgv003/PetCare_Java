@@ -14,7 +14,7 @@ public abstract class Usuario {
     private String CPF;
 
     @OneToOne
-    @JoinColumn(referencedColumnName = "idEndereco")
+    @JoinColumn(name = "id_endereco", referencedColumnName = "idEndereco")
     private Endereco endereco;
 
     public Usuario() {}
@@ -34,6 +34,10 @@ public abstract class Usuario {
 
     public String getCPF() {
         return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
     public String getEmail() {

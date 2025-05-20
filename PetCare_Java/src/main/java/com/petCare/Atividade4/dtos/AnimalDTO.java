@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class AnimalDTO {
+
     private Long tutorId;
     private String nome;
     private Especie especie;

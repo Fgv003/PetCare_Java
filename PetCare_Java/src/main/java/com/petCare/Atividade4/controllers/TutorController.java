@@ -1,5 +1,6 @@
 package com.petCare.Atividade4.controllers;
 
+import com.petCare.Atividade4.dtos.TutorDTO;
 import com.petCare.Atividade4.entity.Tutor;
 import com.petCare.Atividade4.services.TutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class TutorController {
     private TutorService tutorService;
 
     @PostMapping
-    public ResponseEntity<Tutor> cadastrar(@RequestBody Tutor tutor) {
+    public ResponseEntity<Tutor> cadastrar(@RequestBody TutorDTO tutor) {
         Tutor salvo = tutorService.save(tutor);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
     }

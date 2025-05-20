@@ -1,5 +1,7 @@
 package com.petCare.Atividade4.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -15,7 +17,8 @@ import java.util.List;
 @Data
 public class Tutor extends Usuario {
 
-    @OneToMany(mappedBy = "idTutor")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Animal> animalList;
 
 
