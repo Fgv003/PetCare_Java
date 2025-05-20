@@ -9,7 +9,7 @@ public interface AnimalService {
     Animal save(Animal animal); 
     Animal findById(Long id); 
     List<Animal> findAll(); 
-    List<Animal> findByIdTutor(Tutor tutor);
+    List<Animal> findByTutorId(Tutor tutor);
     void deleteById(Long id); 
-    List<Animal> findByIdTutor(Long tutorId);
+    List<Animal> findByTutorId(Long tutorId);
 }

@@ -17,7 +17,8 @@ public class Medico extends Usuario{
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Horario> horariosDisponiveis;
-    @OneToMany(mappedBy = "idMedico")
+    
+    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Prontuario> consultasRealizadas;
 
     public Medico(Long id, String nome, String email, String telefone, String CPF, String especialidade, Endereco endereco) {

@@ -35,7 +35,7 @@ public class AnimalController {
 
     @GetMapping("/tutor/{tutorId}")
     public ResponseEntity<List<Animal>> listarPorTutor(@PathVariable Long tutorId) {
-        List<Animal> animais = animalService.findByIdTutor(tutorId);
+        List<Animal> animais = animalService.findByTutorId(tutorId);
         return ResponseEntity.ok(animais);
     }
 

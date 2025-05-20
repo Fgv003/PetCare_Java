@@ -1,5 +1,6 @@
 package com.petCare.Atividade4.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -11,40 +12,43 @@ public class Prontuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-   @ManyToOne
+
+    @ManyToOne
     @JoinColumn(name = "medico_id")
-    private Medico idMedico;
+    private Medico medico;
+
     @ManyToOne
     @JoinColumn(name = "tutor_id")
-    private Tutor idTutor;
+    private Tutor tutor;
+
     @ManyToOne
     @JoinColumn(name = "animal_id")
+    @JsonBackReference
     private Animal animal;
+
     private String observacoes;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Vacina> historicoVacinas;
+
     private LocalDateTime horarioConsulta;
+
     private Integer salaConsulta;
 
+    // Construtores
+    public Prontuario() {}
+
     public Prontuario(Animal animal, LocalDateTime horarioConsulta,
-                      Long id, Medico idMedico, Tutor idTutor, Integer salaConsulta) {
+                      Long id, Medico medico, Tutor tutor, Integer salaConsulta) {
         this.animal = animal;
         this.horarioConsulta = horarioConsulta;
         this.id = id;
-        this.idMedico = idMedico;
-        this.idTutor = idTutor;
+        this.medico = medico;
+        this.tutor = tutor;
         this.salaConsulta = salaConsulta;
     }
 
-    public Prontuario() {}
-
-    public LocalDateTime getHorarioConsulta() {
-        return horarioConsulta;
-    }
-
-    public void setHorarioConsulta(LocalDateTime horarioConsulta) {
-        this.horarioConsulta = horarioConsulta;
-    }
+    // Getters e Setters
 
     public Long getId() {
         return id;
@@ -54,15 +58,29 @@ public class Prontuario {
         this.id = id;
     }
 
-    public Medico getIdMedico() {
-        return idMedico;
+    public Medico getMedico() {
+        return medico;
     }
 
-
-    public Tutor getIdTutor() {
-        return idTutor;
+    public void setMedico(Medico medico) {
+        this.medico = medico;
     }
 
+    public Tutor getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(Tutor tutor) {
+        this.tutor = tutor;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
 
     public String getObservacoes() {
         return observacoes;
@@ -70,6 +88,22 @@ public class Prontuario {
 
     public void setObservacoes(String observacoes) {
         this.observacoes = observacoes;
+    }
+
+    public List<Vacina> getHistoricoVacinas() {
+        return historicoVacinas;
+    }
+
+    public void setHistoricoVacinas(List<Vacina> historicoVacinas) {
+        this.historicoVacinas = historicoVacinas;
+    }
+
+    public LocalDateTime getHorarioConsulta() {
+        return horarioConsulta;
+    }
+
+    public void setHorarioConsulta(LocalDateTime horarioConsulta) {
+        this.horarioConsulta = horarioConsulta;
     }
 
     public Integer getSalaConsulta() {

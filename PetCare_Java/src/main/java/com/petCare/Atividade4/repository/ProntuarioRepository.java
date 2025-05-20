@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProntuarioRepository extends JpaRepository<Prontuario, Long> {
-    boolean existsByIdMedicoAndHorarioConsulta(Medico medico, LocalDate horarioConsulta);
+
+    boolean existsByMedicoAndHorarioConsulta(Medico medico, LocalDate horarioConsulta);
     List<Prontuario> findByAnimal(Animal animal);
 }

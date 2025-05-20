@@ -32,7 +32,7 @@ public class ProntuarioServiceImpl implements ProntuarioService {
 
     @Override
     public boolean existsByIdMedicoAndHorarioConsulta(Medico medico, LocalDate data) {
-        return prontuarioRepository.existsByIdMedicoAndHorarioConsulta(medico, data);
+        return prontuarioRepository.existsByMedicoAndHorarioConsulta(medico, data);
     }
 
     @Override

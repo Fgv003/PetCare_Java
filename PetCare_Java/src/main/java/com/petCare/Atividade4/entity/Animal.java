@@ -29,8 +29,7 @@ public class Animal {
     private Raca raca;
     private LocalDateTime dataNascimento;
 
-    @OneToMany()
-    @JoinColumn(name = "animal")
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Prontuario> prontuarios;
 

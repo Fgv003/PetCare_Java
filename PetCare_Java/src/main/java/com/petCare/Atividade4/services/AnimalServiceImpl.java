@@ -34,7 +34,7 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     @Transactional
-    public List<Animal> findByIdTutor(Tutor tutor) {
+    public List<Animal> findByTutorId(Tutor tutor) {
         return animalRepository.findByIdTutor(tutor);
     }
 
@@ -46,7 +46,7 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     @Transactional
-    public List<Animal> findByIdTutor(Long tutorId) {
+    public List<Animal> findByTutorId(Long tutorId) {
         Tutor tutor = new Tutor();
         tutor.setId(tutorId);
         return animalRepository.findByIdTutor(tutor);
